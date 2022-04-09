@@ -1,0 +1,47 @@
+version: '3.3'
+
+services:
+  next:
+    container_name: next
+    ports:
+      - 3000:3000
+    build:
+      context: frontend
+    volumes:
+      - ./frontend:/usr/src/app
+    env_file:
+      - ./frontend/.env
+    links: 
+      - laravel
+    networks:
+      - app
+
+  laravel:
+    container_name: php_laravel
+    ports:
+      - 6001:80
+    build:
+      context: ./docker/php
+    volumes:
+      - ./backend:/var/www/html
+      - ./docker/apache/default.conf:/etc/apache2/sites-enabled/000-default.conf
+    env_file:
+      - ./backend/.env
+    depends_on:
+      - mysql
+    networks:
+      - app
+
+  mysql:
+    image: mysql
+    container_name: mysql
+    ports:
+      - "5204:3306"
+    env_file:
+      - ./docker/mysql/.env
+    networks:
+      - app
+    
+networks:
+  app:
+    driver: bridge

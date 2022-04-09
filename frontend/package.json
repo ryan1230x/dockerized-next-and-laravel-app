@@ -1,0 +1,32 @@
+{
+  "name": "portfolio-2022",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "prettier": "prettier --check --write .",
+    "prettier-debug": "prettier --debug-check ."
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "formik": "^2.2.9",
+    "next": "12.0.4",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-icons": "^4.3.1",
+    "react-query": "^3.34.0",
+    "sass": "^1.43.5"
+  },
+  "devDependencies": {
+    "@next/eslint-plugin-next": "^12.0.7",
+    "@types/cors": "^2.8.12",
+    "@types/node": "^16.11.10",
+    "@types/react": "17.0.37",
+    "eslint": "7",
+    "eslint-config-next": "12.0.4",
+    "prettier": "2.5.0",
+    "typescript": "4.5.2"
+  }
+}
